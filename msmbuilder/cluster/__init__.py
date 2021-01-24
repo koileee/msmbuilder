@@ -19,11 +19,8 @@ from ..base import BaseEstimator
 from .base import MultiSequenceClusterMixin
 from .kcenters import KCenters
 from .ndgrid import NDGrid
-from .agglomerative import LandmarkAgglomerative
-from .regularspatial import RegularSpatial
 from .kmedoids import KMedoids
 from .minibatchkmedoids import MiniBatchKMedoids
-from .apm import APM
 
 warnings.filterwarnings("once", '', DeprecationWarning, r'^sklearn\.')
 
@@ -59,35 +56,3 @@ def _replace_labels(doc):
     ])
     return doc[:labelstart] + replace + doc[labelend:]
 
-
-class KMeans(MultiSequenceClusterMixin, cluster.KMeans, BaseEstimator):
-    __doc__ = _replace_labels(cluster.KMeans.__doc__)
-
-
-class MiniBatchKMeans(MultiSequenceClusterMixin, cluster.MiniBatchKMeans,
-                      BaseEstimator):
-    __doc__ = _replace_labels(cluster.MiniBatchKMeans.__doc__)
-
-
-class AffinityPropagation(MultiSequenceClusterMixin,
-                          cluster.AffinityPropagation, BaseEstimator):
-    __doc__ = _replace_labels(cluster.AffinityPropagation.__doc__)
-
-
-class MeanShift(MultiSequenceClusterMixin, cluster.MeanShift, BaseEstimator):
-    __doc__ = _replace_labels(cluster.MeanShift.__doc__)
-
-
-class SpectralClustering(MultiSequenceClusterMixin, cluster.SpectralClustering,
-                         BaseEstimator):
-    __doc__ = _replace_labels(cluster.SpectralClustering.__doc__)
-
-
-class AgglomerativeClustering(MultiSequenceClusterMixin,
-                              cluster.AgglomerativeClustering,
-                              BaseEstimator):
-    __doc__ = _replace_labels(cluster.AgglomerativeClustering.__doc__)
-
-
-class GMM(MultiSequenceClusterMixin, sklearn_GMM, BaseEstimator):
-    __doc__ = _replace_labels(sklearn_GMM.__doc__)

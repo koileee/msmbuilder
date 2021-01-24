@@ -44,7 +44,7 @@ class _MiniBatchKMedoids(ClusterMixin, TransformerMixin):
     batch_size : int, optional, default: 100
         Size of the mini batches.
     metric : {"euclidean", "sqeuclidean", "cityblock", "chebyshev", "canberra",
-              "braycurtis", "hamming", "jaccard", "cityblock", "rmsd"}
+              "braycurtis", "hamming", "jaccard", "cityblock", "rmsd", "cosine"}
         The distance metric to use. metric = "rmsd" requires that sequences
         passed to ``fit()`` be ```md.Trajectory```; other distance metrics
         require ``np.ndarray``s.
